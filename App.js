@@ -1,11 +1,13 @@
 import React, {useState} from 'react';
-import {Text, Image, View} from 'react-native';
+import {Image} from 'react-native';
 import {AppLoading} from 'expo';
 import {Asset} from 'expo-asset';
 import * as Font from 'expo-font';
 import {Ionicons} from '@expo/vector-icons';
+import {Provider} from 'react-redux';
 
 import Gate from './components/Gate';
+import store from './redux/store';
 
 const cacheImages = images =>
     images.map(image => {
@@ -35,7 +37,11 @@ export default function () {
     const onFinish = () => setIsReady(true);
 
     return isReady ? (
-        <Gate />
+
+        <Provider store={store}>
+            <Gate />
+        </Provider>
+
     ) : (
         <AppLoading
             startAsync={loadAssets}

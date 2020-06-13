@@ -8,14 +8,17 @@ const {width} = Dimensions.get('screen');
 
 const Button = styled.View`
   border: 1px solid ${props => (props.accent ? "transparent" : colors.black)};
-  border-radius: 10px;
-  padding: 15px 0px;
+  border-radius: 30px;
+  padding: 12.5px 0px;
   align-items: center;
   width: ${width / 2}px;
+  margin-bottom: 25px;
   background-color: ${props => (props.accent ? colors.red : "transparent")};
 `;
 
 const Text = styled.Text`
+  font-weight: 600;
+  font-size: 16px;
   color: ${props => (props.accent ? "white" : colors.black)};
 `;
 

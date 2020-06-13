@@ -5,6 +5,8 @@ import {Asset} from 'expo-asset';
 import * as Font from 'expo-font';
 import {Ionicons} from '@expo/vector-icons';
 
+import Gate from './components/Gate';
+
 const cacheImages = images =>
     images.map(image => {
         if(typeof image === 'string') {
@@ -33,7 +35,7 @@ export default function () {
     const onFinish = () => setIsReady(true);
 
     return isReady ? (
-        <Text>Ready</Text>
+        <Gate />
     ) : (
         <AppLoading
             startAsync={loadAssets}

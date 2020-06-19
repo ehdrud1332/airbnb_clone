@@ -51,6 +51,8 @@ export default ({navigation: {navigate}}) => {
             }
         } catch(e) {
             console.warn(e.message)
+        } finally {
+            setLoading(false);
         }
     }
     const dismissKeyboard = () => Keyboard.dismiss

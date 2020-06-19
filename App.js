@@ -30,7 +30,6 @@ export default function () {
             require("./assets/BgImage.jpeg"),
             "http://logok.org/wp-content/uploads/2014/07/airbnb-logo-belo-219x286.png"
         ]);
-        console.log(images);
         const fonts = cacheFonts([Ionicons.font]);
         return Promise.all([...images, ...fonts]);
     }

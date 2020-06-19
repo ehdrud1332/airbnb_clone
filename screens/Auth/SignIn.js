@@ -10,7 +10,9 @@ import styled from 'styled-components/native';
 import Btn from '../../components/Auth/Btn';
 import Input from '../../components/Input';
 import DissmissKeyboard from "../../components/DissmissKeyboard";
+import {useDispatch} from 'react-redux';
 import utils from '../../utils';
+import {userLogin} from '../../redux/userSlice';
 import api from '../../api';
 
 
@@ -25,18 +27,27 @@ const InputContainer = styled.View`
 `;
 
 export default ({route: {params}}) => {
-
+    const dispatch = useDispatch();
     const [email, setEmail] = useState(params?.email);
     const [password, setPassword] = useState(params?.password);
     const handleSubmit = async() => {
-        validateForm();
-        try{
-            const {status} = await api.createAccount({
-
-            })
-        } catch(e) {
-            console.warn(e.message)
+        if(!validateForm()) {
+            return;
         }
+
+        // try {
+        //     const result = await api.login({
+        //         email: email, password: password
+        //     })
+        //     console.log(result)
+        // } catch(e) {
+        //     console.warn(e.message)
+        // }
+        dispatch(
+            userLogin({
+                email, password
+            })
+        )
     }
     const dismissKeyboard = () => Keyboard.dismiss
     const validateForm = () => {
@@ -46,14 +57,15 @@ export default ({route: {params}}) => {
 
         ) {
             alert("All fields are required");
-            return;
+            return false;
         }
         if(!utils.isEmail(email)) {
 
             console.log(utils.isEmail(email))
             alert("Please add a valid email.")
-            return;
+            return false;
         }
+        return true
     }
 
     return (
@@ -63,6 +75,7 @@ export default ({route: {params}}) => {
                 <KeyboardAvoidingView behavior="position">
                     <InputContainer>
                         <Input
+                            keyboardType="email-address"
                             value={email}
                             placeholder="email"
                             autoCapitalize="none"

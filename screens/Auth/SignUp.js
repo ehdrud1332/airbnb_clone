@@ -24,14 +24,19 @@ const InputContainer = styled.View`
 
 
 
-export default () => {
+export default ({navigation: {navigate}}) => {
 
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [loading, setLoading] = useState(false);
     const handleSubmit = async () => {
-        validateForm();
+
+        if(!validateForm()) {
+            return;
+        }
+        setLoading(true);
         try {
             const {status} = await api.createAccount({
                 firstName: firstName,
@@ -40,6 +45,10 @@ export default () => {
                 password: password,
             })
             console.log(status)
+            if(status === 200) {
+                alert("Account created successfully, Sign In, Please");
+                navigate("SignIn", {email, password});
+            }
         } catch(e) {
             console.warn(e.message)
         }
@@ -54,15 +63,16 @@ export default () => {
 
         ) {
             alert("All fields are required");
-            return;
+            return false;
         }
 
         if(!utils.isEmail(email)) {
 
             console.log(utils.isEmail(email))
             alert("Please add a valid email.")
-            return;
+            return false;
         }
+        return true;
     }
 
 
@@ -98,7 +108,12 @@ export default () => {
                             stateFn={setPassword}
                         />
                     </InputContainer>
-                    <Btn text={"Sign Up"} accent onPress={handleSubmit} />
+                    <Btn
+                        loading={loading}
+                        text={"Sign Up"}
+                        accent
+                        onPress={handleSubmit}
+                    />
                 </KeyboardAvoidingView>
             </Container>
         </DissmissKeyboard>

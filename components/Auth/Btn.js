@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
-import {TouchableOpacity, Dimensions} from 'react-native';
+import {TouchableOpacity, Dimensions, ActivityIndicator} from 'react-native';
 import colors from '../../colors';
 
 const {width} = Dimensions.get('screen');
@@ -22,11 +22,15 @@ const Text = styled.Text`
   color: ${props => (props.accent ? "white" : colors.black)};
 `;
 
-const Btn = ({onPress, text, accent = false}) => (
+const Btn = ({loading, onPress, text, accent = false}) => (
 
-    <TouchableOpacity onPress={onPress}>
+    <TouchableOpacity onPress={loading ? null : onPress}>
         <Button accent={accent}>
-            <Text accent={accent}>{text}</Text>
+            {loading ? (
+                <ActivityIndicator color={accent ? "white" : "black"} />
+            ) : (
+                <Text accent={accent}>{text}</Text>
+            )}
         </Button>
     </TouchableOpacity>
 );
@@ -34,7 +38,8 @@ const Btn = ({onPress, text, accent = false}) => (
 Btn.propTypes = {
     onPress: PropTypes.func.isRequired,
     text: PropTypes.string.isRequired,
-    accent: PropTypes.bool
+    accent: PropTypes.bool,
+    loading : PropTypes.bool
 };
 
 export default Btn;

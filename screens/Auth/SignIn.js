@@ -24,10 +24,10 @@ const InputContainer = styled.View`
   margin-bottom: 30px;
 `;
 
-export default () => {
+export default ({route: {params}}) => {
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [email, setEmail] = useState(params?.email);
+    const [password, setPassword] = useState(params?.password);
     const handleSubmit = async() => {
         validateForm();
         try{

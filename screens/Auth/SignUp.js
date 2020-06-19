@@ -10,6 +10,7 @@ import Btn from '../../components/Auth/Btn';
 import Input from '../../components/Input';
 import DissmissKeyboard from "../../components/DissmissKeyboard";
 import utils from '../../utils';
+import api from '../../api';
 
 const Container = styled.View`
   flex: 1;
@@ -31,6 +32,17 @@ export default () => {
     const [password, setPassword] = useState("");
     const handleSubmit = async () => {
         validateForm();
+        try {
+            const {status} = await api.createAccount({
+                firstName: firstName,
+                lastName: lastName,
+                email: email,
+                password: password,
+            })
+            console.log(status)
+        } catch(e) {
+            console.warn(e.message)
+        }
     }
     const dismissKeyboard = () => Keyboard.dismiss
     const validateForm = () => {

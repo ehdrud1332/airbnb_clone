@@ -9,6 +9,7 @@ import styled from 'styled-components/native';
 import Btn from '../../components/Auth/Btn';
 import Input from '../../components/Input';
 import DissmissKeyboard from "../../components/DissmissKeyboard";
+import utils from '../../utils';
 
 const Container = styled.View`
   flex: 1;
@@ -28,8 +29,30 @@ export default () => {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const handleSubmit = () => alert(`${firstName}${lastName}${email}${password}`);
+    const handleSubmit = async () => {
+        validateForm();
+    }
     const dismissKeyboard = () => Keyboard.dismiss
+    const validateForm = () => {
+        if(
+            firstName === "" ||
+            lastName === "" ||
+            email === "" ||
+            password === ""
+
+        ) {
+            alert("All fields are required");
+            return;
+        }
+
+        if(!utils.isEmail(email)) {
+
+            console.log(utils.isEmail(email))
+            alert("Please add a valid email.")
+            return;
+        }
+    }
+
 
     return (
         <DissmissKeyboard>
@@ -50,6 +73,7 @@ export default () => {
                             stateFn={setLastName}
                         />
                         <Input
+                            keyboardType={"email-address"}
                             value={email}
                             placeholder="email"
                             autoCapitalize="none"

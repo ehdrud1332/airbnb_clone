@@ -1,3 +1,4 @@
+
 import React, {useState} from 'react';
 import {
     StatusBar,
@@ -9,6 +10,7 @@ import styled from 'styled-components/native';
 import Btn from '../../components/Auth/Btn';
 import Input from '../../components/Input';
 import DissmissKeyboard from "../../components/DissmissKeyboard";
+import utils from '../../utils';
 
 
 const Container = styled.View`
@@ -23,10 +25,29 @@ const InputContainer = styled.View`
 
 export default () => {
 
-    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const handleSubmit = () => alert(`${username}${password}`);
+    const handleSubmit = async() => {
+        validateForm();
+    }
     const dismissKeyboard = () => Keyboard.dismiss
+    const validateForm = () => {
+        if(
+            email === "" ||
+            password === ""
+
+        ) {
+            alert("All fields are required");
+            return;
+        }
+        if(!utils.isEmail(email)) {
+
+            console.log(utils.isEmail(email))
+            alert("Please add a valid email.")
+            return;
+        }
+    }
+
     return (
         <DissmissKeyboard>
             <Container>
@@ -34,10 +55,10 @@ export default () => {
                 <KeyboardAvoidingView behavior="position">
                     <InputContainer>
                         <Input
-                            value={username}
-                            placeholder="Username"
+                            value={email}
+                            placeholder="email"
                             autoCapitalize="none"
-                            stateFn={setUsername}
+                            stateFn={setEmail}
                         />
                         <Input
                             value={password}

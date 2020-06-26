@@ -11,7 +11,7 @@ const Text = styled.Text`
 
 `;
 
-export default (
+export default ({rooms}) => (
     <Container>
         <Text>Explore</Text>
     </Container>

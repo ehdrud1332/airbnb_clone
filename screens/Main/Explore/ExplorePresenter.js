@@ -11,12 +11,8 @@ const Text = styled.Text`
 
 `;
 
-const Explore = () => {
-    return (
-        <Container>
-            <Text>Explore</Text>
-        </Container>
-    );
-};
-
-export default Explore;
+export default (
+    <Container>
+        <Text>Explore</Text>
+    </Container>
+);

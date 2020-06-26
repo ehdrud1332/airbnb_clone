@@ -2,10 +2,10 @@ import React from 'react';
 import {Platform, View} from 'react-native';
 import {createStackNavigator} from '@react-navigation/stack';
 import {Ionicons} from '@expo/vector-icons';
-import Welcome from '../screens/Auth/Welcome';
+import Welcome from "../screens/Auth/Welcome";
 import SignIn from "../screens/Auth/SignIn";
 import SignUp from "../screens/Auth/SignUp";
-import BackBtn from '../components/Auth/BackBtn';
+import BackBtn from "../components/Auth/BackBtn";
 const Auth = createStackNavigator();
 
 

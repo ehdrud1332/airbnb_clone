@@ -3,6 +3,7 @@ import {View, Text, TouchableOpacity} from 'react-native';
 import {useSelector, useDispatch} from 'react-redux';
 import {logIn, logOut} from '../redux/userSlice';
 import Auth from '../navigaion/Auth';
+import Main from '../navigaion/Main';
 import {NavigationContainer} from '@react-navigation/native';
 
 const Gate = () => {
@@ -13,11 +14,9 @@ const Gate = () => {
         <NavigationContainer>
             {isLoggedIn
                 ? (
-                    <TouchableOpacity onPress={() => dispatch(logOut())}>
-                        <Text>Log Out</Text>
-                    </TouchableOpacity>
-                ) : (
                     <Auth />
+                ) : (
+                    <Main />
                 )}
         </NavigationContainer>
     );

@@ -7,6 +7,7 @@ export default ({getRooms, rooms, page}) => {
 
     useEffect(() => {
         getRooms();
+        console.log(getRooms())
     }, []);
 
     return (

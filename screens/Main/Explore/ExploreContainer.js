@@ -3,11 +3,11 @@ import ExplorePresenter from './ExplorePresenter';
 
 
 
-export default ({getRooms, rooms, page}) => {
+export default ({getRooms, rooms}) => {
 
     useEffect(() => {
         getRooms();
-        console.log(getRooms())
+        console.log("room data is ", getRooms())
     }, []);
 
     return (

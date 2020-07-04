@@ -28,6 +28,7 @@ export default function () {
     const loadAssets = async() => {
         const images = cacheImages([
             require("./assets/BgImage.jpeg"),
+            require("./assets/Image.jpeg"),
             "http://logok.org/wp-content/uploads/2014/07/airbnb-logo-belo-219x286.png"
         ]);
         const fonts = cacheFonts([Ionicons.font]);

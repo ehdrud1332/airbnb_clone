@@ -1,10 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components/native';
+import {Dimensions} from 'react-native';
+import Swiper from 'react-native-swiper';
+
+const {width, height} = Dimensions.get("screen")
+
+
 
 const Container = styled.View`
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
   align-items: flex-start;
 `;
 
@@ -40,10 +46,29 @@ const PriceNumber = styled.Text`
   font-size: 16px;
 `;
 
+const PhotosContainer = styled.View`
+  margin-bottom: 10px;
+  overflow: hidden;
+  width: 100%;
+  height: ${height / 4}px;
+`;
+
+const SlideImage = styled.Image`
+  width: 100%;
+  height: 100%;
+`;
 
 
 const RoomCard = ({id, isFav, isSuperHost, photos, name, price}) => (
     <Container>
+        <PhotosContainer>
+            {photos.length === 0 ? (
+                <SlideImage
+                    resizeMode="repeat"
+                    source={require("../assets/Image.jpeg")}
+                />
+            ) : null}
+        </PhotosContainer>
         {isSuperHost ? (
             <SuperHost>
                 <SuperHostText>SuperHost</SuperHostText>

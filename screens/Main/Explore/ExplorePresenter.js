@@ -13,7 +13,7 @@ const Text = styled.Text`
 
 `;
 
-export default ({rooms}) => {
+export default ({ rooms }) => {
     return (
         <Container>
             {rooms.length === 0 ? (

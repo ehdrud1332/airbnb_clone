@@ -1,6 +1,6 @@
 import ExploreContainer from "./ExploreContainer";
 import {connect} from 'react-redux';
-import {getRooms} from '../../../redux/roomsSlice';
+import roomsSlice, {getRooms} from '../../../redux/roomsSlice';
 
 function mapDispatchToProps(dispatch) {
     return{
@@ -8,9 +8,9 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-// function mapStateToProps(state) {
-//     return state.roomsReducer.explore
-// }
+function mapStateToProps(state) {
+    return state.roomsSlice.explore
+}
 
-export default connect(mapDispatchToProps)(ExploreContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(ExploreContainer);
 

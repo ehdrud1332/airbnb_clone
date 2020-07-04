@@ -5,7 +5,6 @@ const roomsSlice = createSlice({
     name : "rooms",
     initialState: {
         explore: {
-            page: 1,
             rooms: []
         },
         favs: []
@@ -23,7 +22,7 @@ const roomsSlice = createSlice({
                     explore.rooms.push(payloadRoom);
                 }
             })
-            state.explore.page = payload.page;
+            // state.explore.page = payload.page;
             // state.explore.rooms.push(action.payload.rooms);
             // state.explore.page = action.payload.page;
         }
@@ -39,7 +38,6 @@ export const getRooms = () => async dispatch => {
         dispatch(
             setExploreRooms({
                 rooms: results,
-                page: 1
             })
         );
     } catch(e) {

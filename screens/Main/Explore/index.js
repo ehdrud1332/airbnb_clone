@@ -8,9 +8,9 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-function mapStateToProps(state) {
-    return state.roomsReducer.explore
-}
+// function mapStateToProps(state) {
+//     return state.roomsReducer.explore
+// }
 
-export default connect(mapStateToProps,mapDispatchToProps)(ExploreContainer);
+export default connect(mapDispatchToProps)(ExploreContainer);
 

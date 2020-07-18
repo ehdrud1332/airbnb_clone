@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
 import ExplorePresenter from './ExplorePresenter';
-import {ActivityIndicator, FlatList, View, Text} from 'react-native';
+import {ActivityIndicator, View, Button} from 'react-native';
 import api from '../../../api';
 
 
-export default () => {
+
+export default ({navigation}) => {
 
     const [isLoading, setLoading] = useState(true);
     const [rooms, setRooms] = useState([]);
@@ -43,20 +44,24 @@ export default () => {
     // }, []);
 
     return (
-        <View style={{flex: 1, padding:24}}>
-            {isLoading ? (
-                <ActivityIndicator/>
-            ) : (
-                // <FlatList
-                //     data={rooms}
-                //     keyExtractor={({id}, index) => id}
-                //     renderItem={({item}) => (
-                //         <Text>{item.name}, {item.price}</Text>
-                //     )}
-                // />
-                <ExplorePresenter rooms={rooms}/>
-            )}
-        </View>
+        <>
+            <View style={{flex: 1, padding:24}}>
+                {isLoading ? (
+                    <ActivityIndicator/>
+                ) : (
+                    // <FlatList
+                    //     data={rooms}
+                    //     keyExtractor={({id}, index) => id}
+                    //     renderItem={({item}) => (
+                    //         <Text>{item.name}, {item.price}</Text>
+                    //     )}
+                    // />
+                    <ExplorePresenter rooms={rooms}/>
+
+                )}
+            </View>
+            <Button title="Go to Detail" onPress={() => navigation.navigate("DetailRoom")} />
+        </>
     );
 };
 

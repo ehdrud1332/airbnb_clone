@@ -62,25 +62,25 @@ const SlideImage = styled.Image`
 
 const RoomCard = ({id, isFav, isSuperHost, photos, name, price}) => (
     <Container>
-        <PhotosContainer>
-            {photos.length === 0 ? (
-                <SlideImage
-                    resizeMode="repeat"
-                    source={require("../assets/Image.jpeg")}
-                />
-            ) : (
-                <Swiper
-                    removeClippedSubviews
-                    paginationStyle={{marginBottom: -15}}
-                    dotColor={"rgba(200, 200, 200, 0.8)"}
-                    activeDotColor={"white"}
-                >
-                    {photos.map(photo => (
-                        <SlideImage key={photo.id} source={{uri: photo.file}}/>
-                    ))}
-                </Swiper>
-            )}
-        </PhotosContainer>
+        {/*<PhotosContainer>*/}
+        {/*    {photos.length === 0 ? (*/}
+        {/*        <SlideImage*/}
+        {/*            resizeMode="repeat"*/}
+        {/*            source={require("../assets/Image.jpeg")}*/}
+        {/*        />*/}
+        {/*    ) : (*/}
+        {/*        <Swiper*/}
+        {/*            removeClippedSubviews*/}
+        {/*            paginationStyle={{marginBottom: -15}}*/}
+        {/*            dotColor={"rgba(200, 200, 200, 0.8)"}*/}
+        {/*            activeDotColor={"white"}*/}
+        {/*        >*/}
+        {/*            {photos.map(photo => (*/}
+        {/*                <SlideImage key={photo.id} source={{uri: photo.file}}/>*/}
+        {/*            ))}*/}
+        {/*        </Swiper>*/}
+        {/*    )}*/}
+        {/*</PhotosContainer>*/}
         {isSuperHost ? (
             <SuperHost>
                 <SuperHostText>SuperHost</SuperHostText>

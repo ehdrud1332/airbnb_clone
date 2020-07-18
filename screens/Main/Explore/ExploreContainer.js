@@ -47,14 +47,14 @@ export default () => {
             {isLoading ? (
                 <ActivityIndicator/>
             ) : (
-                <FlatList
-                    data={rooms}
-                    keyExtractor={({id}, index) => id}
-                    renderItem={({item}) => (
-                        <Text>{item.name}, {item.price}</Text>
-                    )}
-                />
-                // <ExplorePresenter />
+                // <FlatList
+                //     data={rooms}
+                //     keyExtractor={({id}, index) => id}
+                //     renderItem={({item}) => (
+                //         <Text>{item.name}, {item.price}</Text>
+                //     )}
+                // />
+                <ExplorePresenter rooms={rooms}/>
             )}
         </View>
     );

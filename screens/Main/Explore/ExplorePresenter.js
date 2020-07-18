@@ -47,13 +47,13 @@ export default ({ rooms }) => {
                     >
                         {rooms.map(room => (
                             <RoomCard
-                                key={room.id}
+                                key={room._id}
                                 isSuperHost={room.isSuperHost}
-                                id={room.id}
+                                id={room._id}
                                 price={room.price}
                                 name={room.name}
                                 isFav={room.isFav}
-                                photos={room.photos}
+                                // photos={room.photos}
                             />
                         ))}
                     </ScrollView>

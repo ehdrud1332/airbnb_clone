@@ -5,6 +5,7 @@ import {logIn, logOut} from '../redux/userSlice';
 import Auth from '../navigaion/Auth';
 import Main from '../navigaion/Main';
 import {NavigationContainer} from '@react-navigation/native';
+import Stack from '../navigaion/Stack';
 
 const Gate = () => {
     const {isLoggedIn} = useSelector((state => state.userReducer));
@@ -18,7 +19,8 @@ const Gate = () => {
                     <Auth />
                 ) : (
                     // <Auth />
-                    <Main />
+                    <Stack />
+
                 )}
         </NavigationContainer>
     );

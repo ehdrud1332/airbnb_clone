@@ -34,7 +34,7 @@ const FakeText = styled.Text`
 export default ({ rooms }) => {
     return (
         <Container>
-            {rooms.length !== 0 ? (
+            {rooms.length === 0 ? (
                 <ActivityIndicator color="black" />
             ) : (
                 <>

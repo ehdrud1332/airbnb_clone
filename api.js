@@ -41,3 +41,5 @@ export default {
     login: form => callApi("post", "/user/login", form),
     rooms: () => callApi("get", `/rooms/total`)
 };
+
+

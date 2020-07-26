@@ -1,7 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import DetailRoom from '../screens/DetailRoom';
-import Gate from '../components/Gate';
 import Main from './Main';
 
 const Stack = createStackNavigator();

@@ -11,7 +11,7 @@ const Text = styled.Text`
 
 `;
 
-const Profile = () => {
+const ProfilePresenter = () => {
     return (
         <Container>
             <Text>Profile</Text>
@@ -19,4 +19,4 @@ const Profile = () => {
     );
 };
 
-export default Profile;
+export default ProfilePresenter;

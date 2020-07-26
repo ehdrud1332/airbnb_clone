@@ -51,10 +51,10 @@ export default () => (
         })}
 
     >
-        <Main.Screen name="Explore" component={Explore} />
-        <Main.Screen name="Saved" component={Saved} />
-        <Main.Screen name="Map" component={Map} />
         <Main.Screen name="Profile" component={Profile} />
+        <Main.Screen name="Saved" component={Saved} />
+        <Main.Screen name="Explore" component={Explore} />
+        <Main.Screen name="Map" component={Map} />
         <Main.Screen name="Like" component={Like} />
     </Main.Navigator>
 )

@@ -1,22 +1,30 @@
 import React from 'react';
-import styled from 'styled-components/native';
-
-const Container = styled.View`
-  flex: 1;
-  justify-content: center;
-  align-items: center;
-`;
-
-const Text = styled.Text`
-
-`;
+import {
+    View,
+    Text,
+    StyleSheet,
+    FlatList,
+    Image,
+    Dimensions,
+    Animated,
+    TouchableOpacity,
+    Platform
+} from 'react-native';
+import Loader from '../../components/Movie/Loader';
+import Backdrop from "../../components/Movie/Backdrop";
 
 const Like = () => {
     return (
-        <Container>
-            <Text>Like</Text>
-        </Container>
+        <View style={styles.container}>
+            <Backdrop />
+        </View>
     );
 };
 
 export default Like;
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1
+    }
+})

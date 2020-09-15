@@ -14,11 +14,13 @@ const Gate = () => {
         <NavigationContainer>
             {isLoggedIn
                 ? (
-                    // <Main />
+
                     <Auth />
                 ) : (
                     // <Auth />
                     <Stack />
+
+
 
                 )}
         </NavigationContainer>
